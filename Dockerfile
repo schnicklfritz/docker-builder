@@ -1,5 +1,5 @@
-# Universal CUDA 12.8 builder image for AI/ML project builds on QuickPod
-FROM nvidia/cuda:12.8-devel-ubuntu22.04
+# Universal CUDA 12.2 builder image for AI/ML project builds on QuickPod
+FROM nvidia/cuda:12.2.2-devel-ubuntu20.04
 
 # Set working directory
 WORKDIR /workspace

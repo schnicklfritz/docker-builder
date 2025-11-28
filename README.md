@@ -1,13 +1,13 @@
-# Docker Builder - Universal CUDA 12.8 Builder Image
+# Docker Builder - Universal CUDA 12.2 Builder Image
 
-Universal CUDA 12.8 builder image for AI/ML project builds on QuickPod.
+Universal CUDA 12.2 builder image for AI/ML project builds on QuickPod.
 
 ## Overview
 
 This Docker image provides a complete build environment for AI/ML projects on QuickPod, featuring:
 
 ### What's Inside
-- **Base**: NVIDIA CUDA 12.8 development environment on Ubuntu 22.04
+- **Base**: NVIDIA CUDA 12.2.2 development environment on Ubuntu 20.04
 - **Docker Tools**: Docker CLI, Docker Buildx plugin, Docker Compose
 - **Build Toolchain**: gcc, g++, make, cmake (≥3.25), ninja-build, pkg-config
 - **Python**: Python 3.12 with pip, python3-dev, python3-venv, build-essential
@@ -128,7 +128,7 @@ No VNC needed - all interfaces work directly through web browsers.
 - **Professional**: RTX 4090, RTX 5090
 
 ### CUDA Compatibility
-- **Runtime**: CUDA 12.8 backward compatible to 11.x
+- **Runtime**: CUDA 12.2 backward compatible to 11.x
 - **Driver**: Requires NVIDIA driver 525.60.13 or later
 - **Compute**: Supports compute capability 5.0+
 
