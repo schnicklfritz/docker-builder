@@ -7,7 +7,7 @@ Universal CUDA 12.8 builder image for AI/ML project builds on QuickPod.
 This Docker image provides a complete build environment for AI/ML projects on QuickPod, featuring:
 
 ### What's Inside
-- **Base**: NVIDIA CUDA 12.8.0 development environment on Ubuntu 24.04
+- **Base**: NVIDIA CUDA 12.8 development environment on Ubuntu 22.04
 - **Docker Tools**: Docker CLI, Docker Buildx plugin, Docker Compose
 - **Build Toolchain**: gcc, g++, make, cmake (≥3.25), ninja-build, pkg-config
 - **Python**: Python 3.12 with pip, python3-dev, python3-venv, build-essential
