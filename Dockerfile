@@ -8,7 +8,7 @@ WORKDIR /workspace
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
 
-# Install system dependencies and build tools
+# Install system dependencies and build tools (minimal set for AI/ML builds)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     # Docker CLI and tools
     docker.io \
@@ -36,30 +36,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # Audio libraries
     sox \
     libsndfile1-dev \
-    libportaudio2 \
-    libasound2-dev \
-    libpulse-dev \
     # Image libraries
     libjpeg-dev \
     libpng-dev \
-    libtiff-dev \
     # Network/SSL libraries
     libssl-dev \
     libcurl4-openssl-dev \
     # Compression libraries
     zlib1g-dev \
-    liblzma-dev \
     # Math libraries
     libopenblas-dev \
-    liblapack-dev \
     # Utilities
     curl \
     wget \
     unzip \
     jq \
-    vim \
-    nano \
-    htop \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
@@ -87,16 +78,11 @@ RUN docker buildx create --name builder --driver docker-container --use \
 RUN ln -sf /usr/libexec/docker/cli-plugins/docker-buildx /usr/bin/docker-buildx \
     && ln -sf /usr/libexec/docker/cli-plugins/docker-compose /usr/bin/docker-compose
 
-# Verify installations
-RUN cmake --version \
-    && python3 --version \
+# Verify key installations
+RUN python3 --version \
     && pip --version \
     && docker --version \
-    && docker buildx version \
-    && docker compose version \
-    && git --version \
-    && gh --version \
-    && ffmpeg -version | head -n1
+    && git --version
 
 # Set default command
 CMD ["/bin/bash"]
