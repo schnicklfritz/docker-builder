@@ -63,13 +63,8 @@ RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1 
 # Install latest pip
 RUN python3 -m pip install --upgrade pip
 
-# Set up buildx with registry cache support
-RUN docker buildx create --name builder --driver docker-container --use \
-    && docker buildx inspect --bootstrap
-
-# Create symbolic links for Docker CLI compatibility
-RUN ln -sf /usr/libexec/docker/cli-plugins/docker-buildx /usr/bin/docker-buildx \
-    && ln -sf /usr/libexec/docker/cli-plugins/docker-compose /usr/bin/docker-compose
+# Verify Docker CLI is available
+RUN docker --version
 
 # Verify key installations
 RUN python3 --version \
