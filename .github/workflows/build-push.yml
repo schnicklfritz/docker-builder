@@ -69,7 +69,7 @@ jobs:
         push: true
         tags: |
           schnicklbob/docker-builder:latest
-          schnicklbob/docker-builder:cuda12.2-ubuntu20.04
+          schnicklbob/docker-builder:cuda12.8-ubuntu24.04
           schnicklbob/docker-builder:${{ github.sha }}
           ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
         cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache
@@ -80,7 +80,7 @@ jobs:
         echo "✅ Docker image built and pushed successfully!"
         echo "📦 Image tags:"
         echo "  - schnicklbob/docker-builder:latest"
-        echo "  - schnicklbob/docker-builder:cuda12.2-ubuntu20.04"
+        echo "  - schnicklbob/docker-builder:cuda12.8-ubuntu24.04"
         echo "  - schnicklbob/docker-builder:${{ github.sha }}"
         echo "  - ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest"
         echo ""
