@@ -13,7 +13,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # Docker CLI and tools
     docker.io \
     docker-buildx \
-    docker-compose-plugin \
     # Build toolchain
     gcc \
     g++ \
@@ -21,16 +20,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     cmake \
     ninja-build \
     pkg-config \
-    # Python 3.12
-    python3.12 \
-    python3.12-dev \
-    python3.12-venv \
+    # Python 3.8 (available in Ubuntu 20.04)
+    python3.8 \
+    python3.8-dev \
+    python3.8-venv \
     python3-pip \
     build-essential \
-    # Git and GitHub CLI
+    # Git and tools
     git \
     git-lfs \
-    gh \
     # FFmpeg with CUDA support
     ffmpeg \
     # Audio libraries
@@ -63,9 +61,9 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/nul
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
-# Set up Python 3.12 as default
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1 \
-    && update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1
+# Set up Python 3.8 as default
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1 \
+    && update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1
 
 # Install latest pip
 RUN python3 -m pip install --upgrade pip
