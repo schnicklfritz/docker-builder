@@ -53,13 +53,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
-# Upgrade CMake to version 3.25 or higher
-RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null \
-    && echo "deb https://apt.kitware.com/ubuntu/ jammy main" | tee /etc/apt/sources.list.d/kitware.list \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends cmake \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean
+# Verify CMake version (CUDA base image should have recent CMake)
+RUN cmake --version
 
 # Set up Python 3.8 as default
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1 \
